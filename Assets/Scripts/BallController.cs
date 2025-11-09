@@ -5,6 +5,7 @@ public class BallController : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    private bool started;
     public InputAction directionChange;
 
     Rigidbody rb;
@@ -27,17 +28,27 @@ public class BallController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        started = false;
 
-        rb.linearVelocity = new Vector3(speed, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(directionChange.triggered)
+        if (!started)
         {
-            SwitchDirection();
+            if (directionChange.triggered)
+            {
+                rb.linearVelocity = new Vector3(speed, 0, 0);
+                started = true;
+            }
         }
+        
+        if(directionChange.triggered)
+            {
+                SwitchDirection();
+            }
+        
 
     }
     
