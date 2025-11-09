@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 794819027}
   - component: {fileID: 794819026}
   - component: {fileID: 794819030}
+  - component: {fileID: 794819031}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -480,8 +481,8 @@ Transform:
   m_GameObject: {fileID: 794819025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -513,6 +514,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &794819031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794819025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d17bacd74d06975895fb000f586ae68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  directionChange:
+    m_Name: Direction Change
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 31ceb1e3-c1ed-460c-82db-fc737e263e8a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: cbc7df17-397b-4710-9cc6-ab05c65a6be2
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Direction Change
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 554ae2c7-fab6-4da2-9dc1-96e0ce4a22ca
+      m_Path: <Touchscreen>/Press
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Direction Change
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
