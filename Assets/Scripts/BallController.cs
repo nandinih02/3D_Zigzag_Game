@@ -50,6 +50,7 @@ public class BallController : MonoBehaviour
         {
             gameOver = true;
             //rb.linearVelocity=new Vector3(0f, -25f, 0f);
+            Camera.main.GetComponent<CameraFollow>().gameOver = true;
 
             Debug.Log("Game Over");
         }
