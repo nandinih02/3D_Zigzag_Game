@@ -49,7 +49,7 @@ public class BallController : MonoBehaviour
         if(! Physics.Raycast(transform.position, Vector3.down, 1f))
         {
             gameOver = true;
-            //rb.linearVelocity=new Vector3(0f, -25f, 0f);
+            rb.linearVelocity=new Vector3(0f, -25f, 0f);
             Camera.main.GetComponent<CameraFollow>().gameOver = true;
 
             Debug.Log("Game Over");
