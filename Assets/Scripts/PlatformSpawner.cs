@@ -6,22 +6,43 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject platform;
     Vector3 lastPos;
     float size;
+    public bool gameOver;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         lastPos = platform.transform.position;
         size = platform.transform.localScale.x;
 
-        for(int i = 0; i <= 5f; i++)
+        for (int i = 0; i < 20; i++)
         {
-            SpawnZ();
+            SpawnPlatforms();
         }
+
+        InvokeRepeating("SpawnPlatforms", 2f, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(gameOver)
+        {
+            CancelInvoke("SpawnPlatforms");
+        }
 
+    }
+
+    void SpawnPlatforms()
+    {
+        int rand = Random.Range(0, 6);
+        if (rand < 3)
+        {
+            SpawnX();
+        }
+        else if(rand >=3)
+        {
+            SpawnZ();
+        }
+        
     }
 
     void SpawnX()
