@@ -74,4 +74,12 @@ public class BallController : MonoBehaviour
             rb.linearVelocity = new Vector3(0, 0, speed);
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Diamond"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
