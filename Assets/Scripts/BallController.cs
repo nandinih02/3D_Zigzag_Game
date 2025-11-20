@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     private bool started;
     private bool gameOver;
     public InputAction directionChange;
+    public GameObject particle;
 
     Rigidbody rb;
 
@@ -79,7 +80,9 @@ public class BallController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Diamond"))
         {
+            GameObject part = Instantiate(particle,other.gameObject.transform.position, Quaternion.identity) as GameObject;
             Destroy(other.gameObject);
+            Destroy(part, 1.5f);
         }
     }
 }

@@ -568,6 +568,7 @@ MonoBehaviour:
       m_Action: Direction Change
       m_Flags: 0
     m_Flags: 0
+  particle: {fileID: 15963874581575351, guid: bcec1803c878a9a7b9e76f32380cdbee, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
