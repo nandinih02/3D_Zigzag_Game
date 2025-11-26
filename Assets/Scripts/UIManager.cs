@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject zigzagPanel;
     public GameObject gameOverPanel;
     public TMP_Text taptext;
+    public TMP_Text score;
     public TMP_Text highScore1;
     public TMP_Text highScore2;
     public Button reset;
@@ -22,8 +24,10 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
+        highScore1.text = ScoreManager.instance.highScore.ToString();
         gameOverPanel.SetActive(false);
         zigzagPanel.SetActive(true);
+        
     }
 
     public void GameStart()
@@ -36,6 +40,8 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        highScore2.text = ScoreManager.instance.highScore.ToString();
+        
     }
 
     public void Reset()
@@ -46,6 +52,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        score.text = ScoreManager.instance.score.ToString();
     }
 }

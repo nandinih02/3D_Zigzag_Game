@@ -81,6 +81,7 @@ public class BallController : MonoBehaviour
         if(other.gameObject.CompareTag("Diamond"))
         {
             GameObject part = Instantiate(particle,other.gameObject.transform.position, Quaternion.identity) as GameObject;
+            ScoreManager.instance.score += 5;
             Destroy(other.gameObject);
             Destroy(part, 1.5f);
         }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class TriggerChecker : MonoBehaviour
 {
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +18,7 @@ public class TriggerChecker : MonoBehaviour
     {
         if(other.gameObject.tag=="Ball")
         {
+            ScoreManager.instance.score += 1;
             Invoke("FallDown", 0.5f);
         }
 
