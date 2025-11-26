@@ -44,6 +44,7 @@ public class BallController : MonoBehaviour
             {
                 rb.linearVelocity = new Vector3(speed, 0, 0);
                 started = true;
+                GameManager.instance.StartGame();
             }
         }
 
@@ -52,6 +53,7 @@ public class BallController : MonoBehaviour
             gameOver = true;
             rb.linearVelocity=new Vector3(0f, -25f, 0f);
             Camera.main.GetComponent<CameraFollow>().gameOver = true;
+            GameManager.instance.GameOver();
 
             Debug.Log("Game Over");
         }

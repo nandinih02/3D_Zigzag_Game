@@ -25,7 +25,7 @@ public class PlatformSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameOver)
+        if(GameManager.instance.gameOver)
         {
             CancelInvoke("SpawnPlatforms");
         }
@@ -74,4 +74,5 @@ public class PlatformSpawner : MonoBehaviour
             Instantiate(diamond, new Vector3(pos.x,pos.y+1,pos.z),diamond.transform.rotation);
         }
     }
+
 }

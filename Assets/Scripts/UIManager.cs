@@ -25,15 +25,18 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         highScore1.text = ScoreManager.instance.highScore.ToString();
-        gameOverPanel.SetActive(false);
-        zigzagPanel.SetActive(true);
+        //gameOverPanel.SetActive(false);
+        //zigzagPanel.SetActive(true);
+        //score.enabled = false;
         
     }
 
     public void GameStart()
     {
         taptext.enabled = false;
-        zigzagPanel.GetComponent<Animator>().Play("panelUp");
+        taptext.GetComponent<Animator>().Play("TextDown");
+        zigzagPanel.GetComponent<Animator>().Play("PanelUp");
+        score.enabled=true;
 
     }
 
