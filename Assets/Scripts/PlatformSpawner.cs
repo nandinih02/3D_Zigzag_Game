@@ -1,14 +1,24 @@
+using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
+    public static PlatformSpawner instance;
     public GameObject platform;
     public GameObject diamond;
     Vector3 lastPos;
     float size;
     public bool gameOver;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake()
+    {
+        if(instance==null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         lastPos = platform.transform.position;
@@ -19,6 +29,10 @@ public class PlatformSpawner : MonoBehaviour
             SpawnPlatforms();
         }
 
+    }
+
+    public void SpawnStart()
+    {
         InvokeRepeating("SpawnPlatforms", 2f, 0.2f);
     }
 
@@ -57,6 +71,7 @@ public class PlatformSpawner : MonoBehaviour
         if(rand<1)
         {
             Instantiate(diamond, new Vector3(pos.x,pos.y+1,pos.z),diamond.transform.rotation);
+
         }
 
     }
@@ -74,5 +89,6 @@ public class PlatformSpawner : MonoBehaviour
             Instantiate(diamond, new Vector3(pos.x,pos.y+1,pos.z),diamond.transform.rotation);
         }
     }
+
 
 }

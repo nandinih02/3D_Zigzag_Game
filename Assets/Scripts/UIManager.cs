@@ -10,7 +10,8 @@ public class UIManager : MonoBehaviour
     public GameObject zigzagPanel;
     public GameObject gameOverPanel;
     public TMP_Text taptext;
-    public TMP_Text score;
+    public TMP_Text score1;
+    public TMP_Text score2;
     public TMP_Text highScore1;
     public TMP_Text highScore2;
     public Button reset;
@@ -33,10 +34,11 @@ public class UIManager : MonoBehaviour
 
     public void GameStart()
     {
-        taptext.enabled = false;
+        taptext.gameObject.SetActive(false);
+        score1.gameObject.SetActive(true);
         taptext.GetComponent<Animator>().Play("TextDown");
         zigzagPanel.GetComponent<Animator>().Play("PanelUp");
-        score.enabled=true;
+        
 
     }
 
@@ -55,6 +57,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = ScoreManager.instance.score.ToString();
+        score1.text = ScoreManager.instance.score.ToString();
+        score2.text = ScoreManager.instance.score.ToString();
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject diamond;
     public static GameManager instance;
     public bool gameOver;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         UIManager.instance.GameStart();
+        PlatformSpawner.instance.SpawnStart();
     }
 
     public void GameOver()
@@ -32,5 +34,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(diamond);
     }
 }
